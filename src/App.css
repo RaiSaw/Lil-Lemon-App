@@ -1,0 +1,79 @@
+
+.navbar {
+  padding: 10px 20px;
+  border-bottom: 1px solid white;
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 2px 8px;
+  background: transparent;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-align: center;
+  justify-content: center;
+}
+
+.navbar a:hover{
+  background: black;
+}
+
+.navbar a.active{
+  background: black;
+  color:aquamarine;
+}
+.app {
+  background: linear-gradient(
+      204deg,
+      rgb(65, 80, 95) 0%,
+      rgb(36, 37, 38) 100%
+  );
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookingForm {
+  background: #101010;
+  padding: 20px 30px;
+  border-radius: 5px;
+  font-size: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.bookingForm label {
+  font-weight: 500;
+}
+
+.bookingForm input[type="text"],
+input[type="date"],
+input[type="number"] {
+  width: 100%;
+  height: 1.3rem;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 18px;
+}
+
+.bookingForm button {
+  background-color: #ffe400;
+  color: #000;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 1rem 0;
+}
+
+.error {
+  height: 1.2rem;
+}
+
+.formError {
+  font-size: 14px;
+  color: red;
+}
