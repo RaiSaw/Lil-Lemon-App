@@ -1,11 +1,30 @@
 import React from 'react'
-import BookingForm from './BookingForm'
+import BookingForm from '../components/BookingForm'
+import Header from '../components/Header'
+import {Box, VStack} from '@chakra-ui/react'
+import Footer from '../components/Footer'
+import Hero from '../components/Hero'
 
 const BookingPage = () => {
   return (
-    <div>
-      <BookingForm/>
-    </div>
+    <VStack
+    w='100%'
+    justify='center'
+    align='center'
+    margin='0 auto'
+    maxWidth='1280'
+      >
+      <Hero/>
+      <Box
+      justifyContent='center'
+      justifyItems='center'
+      alignContent='center'
+      alignItems='center'
+      w='100%'>
+       <BookingForm justifyContent='center'/>
+      </Box>
+      <Footer/>
+    </VStack>
   )
 }
 export default BookingPage;
