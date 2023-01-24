@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import { useFormik } from 'formik';
 import { validationSchema } from '../schemas';
-import { FormLabel, Input, Box, VStack, Heading, Button, FormControl, Select,  Divider,
-    IconButton, EditableInput, EditablePreview, HStack, Text, Editable, Textarea, Flex,
-    Modal, Tooltip, ModalOverlay, ModalContent, ModalBody, Spacer,useDisclosure} from '@chakra-ui/react';
+import { FormLabel, Input, Box, VStack, Heading, Button, FormControl, Select,  Divider, NumberInput,
+NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper,
+IconButton, EditableInput, EditablePreview, HStack, Text, Editable, Textarea, Flex,
+Modal, Tooltip, ModalOverlay, ModalContent, ModalBody, Spacer,useDisclosure} from '@chakra-ui/react';
 import { ArrowBackIcon} from '@chakra-ui/icons'
 
 const initialValues = {
@@ -100,19 +101,26 @@ const BookingForm = () => {
             </div>
             </FormControl>
             <FormControl isRequired>
-            <FormLabel htmlFor="guests">Number of guests</FormLabel>
-            <Input
+            <FormLabel htmlFor="guests">Number of guest/s</FormLabel>
+            <NumberInput
+            min={1}
+            max={10}
+            rounded='5px'
+            clampValueOnBlur={false}
+            >
+            <NumberInputField
+            defaultValue={1}
             className='input'
             type="number"
-            placeholder='1'
-            min="1"
-            max="10"
             id="guests"
-            name="guests"
             value={values.guests}
             onBlur={handleBlur}
-            onChange={handleChange}
-            />
+            onChange={handleChange}placeholder='1'/>
+            <NumberInputStepper>
+              <NumberIncrementStepper />
+              <NumberDecrementStepper />
+            </NumberInputStepper>
+          </NumberInput>
              <div className='error'>
                 {errors.guests && touched.guests && (
                     <p className='formError'>{errors.guests}</p>
@@ -157,20 +165,13 @@ const BookingForm = () => {
             isCentered
             size='full'
             initialFocusRef={initialRef}
-            justifyContent='center'
-            justifyItems='center'
-            alignContent='center'
-            alignItems='center'
-            alignSelf='center'
-            justifySelf='center'
-            maxWidth='1280px'
             >
                 <ModalOverlay />
                 <ModalContent aria-modal='true'>
                 <ModalBody >
                 <Box
                   bg='url(oudoor.jpg)center/cover no-repeat'
-                  w={['80%', '100%', '100%']}
+                  w={['70%', '80%', '100%']}
                   boxShadow='2xl'
                   left={0}
                   right={0}
@@ -184,7 +185,6 @@ const BookingForm = () => {
                   alignItems='center'
                   alignSelf='center'
                   justifySelf='center'
-                  maxWidth='1280px'
                   >
                   <Flex gap={12} bg='#495e57' justifyContent='center' opacity={.9} p={8} rounded='15'>
                   <IconButton
@@ -242,7 +242,7 @@ const BookingForm = () => {
                   <Spacer/>
                   <HStack gap={4}>
                   <Button as='a' href='/confirmation' className="button" type="submit" size={['sm','sm','md']} boxShadow='dark-lg' fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#f4ce14' color='#333' rounded='15px'_hover={{bg:'#333', textColor:'#edefee'}} w='full'>Continue</Button>
-                  <Button as='a' href='/booking' className="button" type="cancel" size={['sm','sm','md']} boxShadow='dark-lg' fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#edefee' color='#333' rounded='15px'_hover={{bg:'#333', textColor:'#edefee'}} w='full'>Cancel</Button>
+                  <Button as='a' href='/booking' className="button" type="cancel" size={['sm','sm','md']} boxShadow='dark-lg' fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#edefee' color='#333' rounded='15px' variant='outline' w='full'>Cancel</Button>
                   </HStack>
                   </VStack>
                   </Flex>
