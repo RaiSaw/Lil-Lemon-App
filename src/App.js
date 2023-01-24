@@ -8,19 +8,6 @@ import BookingPage from "./pages/BookingPage";
 import ConfirmedBooking from './pages/ConfirmedBooking';
 import About from './components/About';
 
-class AvailableTimes extends React.Component{
-    constructor(props){
-      super(props);
-      this.handleChange.bind(this);
-      this.state ={date:''};
-    }
-    handleChange(e){
-      this.setState({date:e.target.value})
-    }
-    render(){
-      return;
-    }
-}
 
 function App() {
   return (

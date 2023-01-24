@@ -1,6 +1,5 @@
 import React from 'react'
 import BookingForm from '../components/BookingForm'
-import Header from '../components/Header'
 import {Box, VStack} from '@chakra-ui/react'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'

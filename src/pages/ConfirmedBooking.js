@@ -1,80 +1,33 @@
 import React from 'react'
-import { Textarea, Editable, Box, VStack, Text, Heading, Button, Flex, Divider, IconButton, EditableInput, EditablePreview, HStack } from '@chakra-ui/react'
-import { ArrowBackIcon} from '@chakra-ui/icons'
+import { Spacer, Box, VStack, Text, Heading, Flex, HStack } from '@chakra-ui/react'
 
-const ConfirmedBooking = ({props}) => {
-
+const ConfirmedBooking = () => {
+    
   return (
     <Box
       className='confirmation'
       bg='url(oudoor.jpg)center/cover no-repeat'
-      w="100%"
-      h={730}
+      w={['80%', '100%', '100%']}
+      h={750}
       boxShadow='2xl'
       left={0}
       right={0}
       top={0}
       p={12}
-      opacity={0.9}
       filter='auto'
       blur='0.6px'
-      mt={-790}
+      mt={-760}
       maxWidth="1280px"
       >
-      <Flex gap={12} bg='#495e57' opacity={.9} p={8} justifyContent='center' rounded='15'>
-      <IconButton
-            as='a'
-            href='/booking'
-            variant='outline'
-            color='#333'
-            aria-label='Back icon'
-            icon={<ArrowBackIcon boxSize={8}/>}
-            mt={8}
-            />
-      <VStack alignItems='flex-start' gap={4} color='white' >
-      <Heading as='h2' fontFamily={'Markazi Text'} fontSize={['30','35', '40']} fontWeight='bold'>Please check your reservation information</Heading>
-      <Divider/>
-      <HStack>
-      <Text>Date:</Text>
-      <Editable defaultValue='DD/MM/YY'>
-      <EditablePreview></EditablePreview>
-      <EditableInput></EditableInput>
-      </Editable>
+      <Flex bg='#495e57' justifyContent='center' alignContent='center' alignItem='center' alignSelf='center'opacity={.9} p={12} rounded='15'>
+      <VStack alignItems='flex-start' gap={2} color='white'>
+      <Heading as='h2' fontFamily={'Markazi Text'} fontSize={['30','35', '40']} fontWeight='medium'>Thank you!</Heading>
+      <Spacer/>
+      <Text fontFamily={'Karla'} fontWeight='medium' fontSize={['8','14', '16']} >We are thrilled that you will be joining us and you'll receive a confirmation email shortly.</Text>
+      <HStack as='i' fontFamily={'Karla'} fontWeight='medium' fontSize={['8','12', '16']} >
+      <Text> If you would like to make special arrangements or additional questions about your reservation, please do not hesitate to reach out.</Text>
       </HStack>
-      <HStack>
-      <Text>Time:</Text>
-      <Editable defaultValue='HH:MM'>
-      <EditablePreview></EditablePreview>
-      <EditableInput></EditableInput>
-      </Editable>
-      </HStack>
-      <HStack>
-      <Text>Number of guest/s:</Text>
-      <Editable defaultValue='#'>
-      <EditablePreview></EditablePreview>
-      <EditableInput></EditableInput>
-      </Editable>
-      </HStack>
-      <HStack>
-      <Text>Seating option:</Text>
-      <Editable defaultValue='Indoor'>
-      <EditablePreview></EditablePreview>
-      <EditableInput></EditableInput>
-      </Editable>
-      </HStack>
-      <HStack>
-      <Text>Occasion:</Text>
-      <Editable defaultValue='Birthday'>
-      <EditablePreview></EditablePreview>
-      <EditableInput></EditableInput>
-      </Editable>
-      </HStack>
-      <Divider/>
-      <Text as='i' justifySelf='flex-start' alignContent='flex-start'>Additional information?</Text>
-      <Textarea placeholder='(e.g. allergies, requests etc.)'></Textarea>
-      <HStack>
-      <Button as='a' href='/' className="button" type="submit" size={['sm','sm','md']} boxShadow='dark-lg' fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#f4ce14' color='#333' rounded='15px'_hover={{bg:'#333', textColor:'#edefee'}} w='full'>Continue</Button>
-      <Button as='a' href='/' className="button" type="cancel" size={['sm','sm','md']} boxShadow='dark-lg' fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#edefee' color='#333' rounded='15px'_hover={{bg:'#333', textColor:'#edefee'}} w='full'>Cancel</Button>
+      <HStack gap={4}>
       </HStack>
       </VStack>
       </Flex>

@@ -60,7 +60,7 @@ import '../App.css';
         >
             <Link to="/" className="logo"><Image src="./LilLemLogo.svg" alt="LilLemon Logo" size="2x"/></Link>
             <Hide below='md'>
-            <NavLink to='/' exact>Home</NavLink>
+            <NavLink to='/' exact='true'>Home</NavLink>
             <NavLink to="/about" >About</NavLink>
             <NavLink to="/booking">Reservations</NavLink>
             <NavLink to="/orderOnline">Order Online</NavLink>
