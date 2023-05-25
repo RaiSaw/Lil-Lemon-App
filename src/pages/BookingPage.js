@@ -11,6 +11,7 @@ const BookingPage = () => {
     justify='center'
     align='center'
     margin='0 auto'
+    mt={36}
     maxWidth='1280'
       >
       <Hero/>

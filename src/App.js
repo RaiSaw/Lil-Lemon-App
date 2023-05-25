@@ -6,7 +6,8 @@ import Nav from "./components/Nav";
 import Homepage from "./pages/Homepage"
 import BookingPage from "./pages/BookingPage";
 import ConfirmedBooking from './pages/ConfirmedBooking';
-import About from './components/About';
+import AboutUs from './pages/AboutUs';
+import OnlineMenu from './pages/OnlineMenu'
 
 
 function App() {
@@ -14,14 +15,15 @@ function App() {
     <ChakraProvider>
     <Router>
       <Nav/>
-      <div className='App'>
+      <main>
         <Routes>
           <Route path="/" exact element={<Homepage/>}/>
-          <Route path="/booking" element={<BookingPage/>}/>
-          <Route path="/confirmation" element={<ConfirmedBooking/>} />
-          <Route path="/about" component={About} />
+          <Route path="booking" element={<BookingPage/>}/>
+          <Route path="confirmation" element={<ConfirmedBooking/>} />
+          <Route path="about" element={<AboutUs/>} />
+          <Route path="orderOnline" element={<OnlineMenu/>} />
         </Routes>
-      </div>
+      </main>
     </Router>
     </ChakraProvider>
   )

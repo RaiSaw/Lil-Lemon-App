@@ -1,16 +1,16 @@
 import React, {useRef, useEffect} from "react";
 import { NavLink, Link } from "react-router-dom";
-import { Button, DrawerHeader, Input, Text, Spacer, DrawerOverlay, FormControl, FormLabel, FormErrorMessage, DrawerFooter, VStack, Box, Hide, Image, Flex, MenuButton, IconButton, Show, Menu, MenuList, MenuItem, HStack, useDisclosure, Drawer, DrawerBody, DrawerContent, DrawerCloseButton } from "@chakra-ui/react";
+import { Button, DrawerHeader, Input, Text, Checkbox, DrawerOverlay, FormControl, FormLabel, FormErrorMessage, DrawerFooter, VStack, Box, Hide, Image, Flex, MenuButton, IconButton, Show, Menu, MenuList, MenuItem, HStack, useDisclosure, Drawer, DrawerBody, DrawerContent, DrawerCloseButton } from "@chakra-ui/react";
 import {HamburgerIcon} from '@chakra-ui/icons'
 import '../App.css';
 
 
  const Nav = () => {
         const headerRef = useRef(null)
-      
+
         useEffect(() =>{
           let prevScrollPos = window.scrollY
-      
+
           const handleScroll = () => {
             const currentScrollPos = window.scrollY
             const headerElement = headerRef.current
@@ -30,10 +30,11 @@ import '../App.css';
             }
         }, [])
         const { isOpen, onOpen, onClose } = useDisclosure()
-        const navRef = React.useRef()
-        const firstField = React.useRef()
-    
+        const navRef = useRef()
+        const firstField = useRef()
+
      return (
+       <VStack width='full'>
         <Box
         ref={headerRef}
         as="section"
@@ -48,7 +49,6 @@ import '../App.css';
         bg="white"
         margin='0 auto'
         maxWidth="1280px"
-        boxShadow='inner'
         >
         <nav className="navbar" aria-label="main navigation">
         <Flex
@@ -66,7 +66,7 @@ import '../App.css';
             <NavLink to='/' exact='true'>Home</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/booking">Reservations</NavLink>
-            <NavLink to="/">Order Online</NavLink>
+            <NavLink to="/orderOnline">Order Online</NavLink>
             <NavLink onClick={onOpen} ref={navRef}>Login</NavLink>
             </Hide>
             <Drawer
@@ -75,18 +75,22 @@ import '../App.css';
             onClose={onClose}
             finalFocusRef={navRef}
             initialFocusRef={firstField}
+            closeOnOverlayClick={false}
+            size='md'
+            blockScrollOnMount={false}
             >
             <DrawerOverlay />
             <DrawerContent>
             <DrawerCloseButton />
-            <Box py={4}>
+            <Box p={8}>
+            <DrawerHeader fontWeight='bold'>Log in</DrawerHeader>
             <VStack gap={4} alignItems='flex-start'>
-            <DrawerHeader>Log in</DrawerHeader>
             <HStack px={6}>
             <Text>No account?</Text>
             <Text as='i' color='blue.500'>Sign up now!</Text>
             </HStack>
             <DrawerBody>
+              <VStack alignItems='flex-start'>
               <FormControl>
                 <FormLabel htmlFor='email'>Email</FormLabel>
                 <Input
@@ -95,7 +99,8 @@ import '../App.css';
                   type="email"
                   name="Email"
                   placeholder="Email address"
-                  value='email'
+                  value='hello@email.com'
+                  variant='filled'
                   />
                   <FormErrorMessage>Ooops! Your email or password is incorrect. Forgotten password? </FormErrorMessage>
                 </FormControl>
@@ -107,15 +112,20 @@ import '../App.css';
                   name="Pw"
                   placeholder="Password"
                   value='password.value'
+                  variant='filled'
                  />
                   <FormErrorMessage>Ooops! Your email or password is incorrect. Forgotten password?</FormErrorMessage>
                 </FormControl>
+                <Text as='i' color='blue.500' fontFamily={'Karla'} fontWeight='medium' fontSize={16}>Forgotten password?</Text>
+                </VStack>
             </DrawerBody>
             <DrawerFooter>
-            <HStack gap={4} alignItems='flex-start' alignContent='flex-start'>
-            <Button as='a' href='/' className="button" type="submit" size={['sm','sm','md']} boxShadow='dark-lg' fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#f4ce14' color='#333' rounded='15px'_hover={{bg:'#333', textColor:'#edefee'}} width='full'>Save</Button>
-            <Button variant='outline' className="button" type="cancel" size={['sm','sm','md']} fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} rounded='15px' mr={3} _hover={{bg:'#333', textColor:'#edefee'}} onClick={onClose} width='full'>Cancel</Button>
-            </HStack>
+            <VStack gap={4} alignItems='flex-start'>
+            <Checkbox defaultChecked>Remember me?</Checkbox>
+            <Button as='a' href='/' className="button" type="submit" size={['sm','md','lg']} boxShadow='dark-lg'
+            fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18}bg='#495e57' color='#edefee' rounded='15px'
+            _hover={{bg:'#ee9972', color:'#495e57'}} width='full'>Login</Button>
+            </VStack>
             </DrawerFooter>
             </VStack>
             </Box>
@@ -127,10 +137,12 @@ import '../App.css';
               <>
                 <MenuButton
                   as={IconButton}
-                  aria-label='Options'
+                  color='#495e57'
+                  bg='#edefee'
+                  aria-label='Menu button'
                   icon={<HamburgerIcon />}
                   variant='outline'
-                  _expanded={{ bg: 'blue.400' }}
+                  _expanded={{ bg: '#495e57', color:'#edefee'}}
                   isActive={isOpen}
                 >
                 {isOpen ? 'Close' : 'Open'}
@@ -139,7 +151,7 @@ import '../App.css';
                 <MenuItem as='a' href='/'>Home</MenuItem>
                 <MenuItem as='a' href='/about'>About</MenuItem>
                 <MenuItem as='a' href='/booking'>Reservations</MenuItem>
-                <MenuItem as='a' href='/'>Order online</MenuItem>
+                <MenuItem as='a' href='/oderOnline'>Order online</MenuItem>
                 <MenuItem as='a' href='/'>Login</MenuItem>
                 </MenuList>
                 </>
@@ -149,6 +161,7 @@ import '../App.css';
         </Flex>
         </nav>
         </Box>
+        </VStack>
      )
  }
   export default Nav;

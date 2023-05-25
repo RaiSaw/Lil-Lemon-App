@@ -1,30 +1,29 @@
 import React from 'react'
-import {Box, VStack, Heading, Spacer, HStack} from '@chakra-ui/react'
+import {Box, VStack, Heading, Spacer} from '@chakra-ui/react'
 import Rev from '../components/Rev'
-import { StarIcon } from '@chakra-ui/icons'
 
 
 const reviews = [
 {
-    rating:<HStack color='#f4ce14'><StarIcon/><StarIcon/><StarIcon/><StarIcon color='gray.200'/><StarIcon color='gray.200'/></HStack>,
+    rating:'⭐️⭐️⭐️⭐️',
     name: "Jane Doe",
     getImageSrc: () => require("../images/Avat.png"),
     raview:"Lorem ipsum dolor sit amet, consetetur sadipscing elitr.",
 },
 {
-    rating:<HStack color='#f4ce14'><StarIcon/><StarIcon/><StarIcon/><StarIcon/><StarIcon color='gray.200'/></HStack>,
+    rating:'⭐️⭐️⭐️⭐️',
     name: "Drew Tan",
     getImageSrc: () => require("../images/Avat4.png"),
     raview:"At vero eos et accusam et justo duo dolores et ea rebum..",
 },
 {
-    rating:<HStack color='#f4ce14'><StarIcon/><StarIcon/><StarIcon/><StarIcon color='gray.200'/><StarIcon color='gray.200'/></HStack>,
+    rating:'⭐️⭐️⭐️',
     name: "Taylor Schindler",
     getImageSrc: () => require("../images/Avat5.png"),
     raview:"Sed diam voluptua!",
 },
 {
-    rating:<HStack color='#f4ce14'><StarIcon/><StarIcon/><StarIcon/><StarIcon/><StarIcon color='gray.200'/></HStack>,
+    rating:'⭐️⭐️⭐️⭐️⭐️',
     name: "Jason Bourd",
     getImageSrc: () => require("../images/Avat3.png"),
     raview:"Stet clita kasd gubergren, no sea takimata sanctus est.",

@@ -2,7 +2,6 @@ import React from 'react'
 import { Spacer, Box, VStack, Text, Heading, Flex, HStack } from '@chakra-ui/react'
 
 const ConfirmedBooking = () => {
-    
   return (
     <Box
       className='confirmation'

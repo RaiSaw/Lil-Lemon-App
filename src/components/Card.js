@@ -10,8 +10,9 @@ const Cardy = ({ title, price, description, imageSrc, alt }) => {
         borderRadius="xl"
         boxShadow='2xl'
         w='100%'
+        className='imgCont'
         >
-          <Image src={imageSrc} borderRadius='10px' objectFit='cover' alt={alt}/>
+          <Image className='image' src={imageSrc} borderRadius='10px' objectFit='cover' alt={alt}/>
           <VStack alignItems="flex-start">
           <CardBody>
             <Flex gap={['4','8','12']} justifyContent="space-between" alignItems="center" >

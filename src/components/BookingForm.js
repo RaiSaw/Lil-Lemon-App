@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import { useFormik } from 'formik';
 import { validationSchema } from '../schemas';
 import { FormLabel, Input, Box, VStack, Heading, Button, FormControl, Select,  Divider, NumberInput,
@@ -46,7 +46,7 @@ const BookingForm = () => {
         },
      })
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const initialRef = React.useRef(null)
+    const initialRef = useRef(null)
     return (
         <Box
         justifyContent='center'
@@ -109,13 +109,14 @@ const BookingForm = () => {
             clampValueOnBlur={false}
             >
             <NumberInputField
-            defaultValue={1}
             className='input'
             type="number"
             id="guests"
             value={values.guests}
             onBlur={handleBlur}
-            onChange={handleChange}placeholder='1'/>
+            onChange={handleChange}
+            placeholder='1'
+            />
             <NumberInputStepper>
               <NumberIncrementStepper />
               <NumberDecrementStepper />
@@ -159,7 +160,7 @@ const BookingForm = () => {
                 <option>Anniversary</option>
             </Select>
             </FormControl>
-            <Button as='a' onClick={onOpen} className="button" type="submit" size={['sm','sm','md']} boxShadow='dark-lg' fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#f4ce14' color='#333' rounded='15px'_hover={{bg:'#333', textColor:'#edefee'}} w='50%'>Reserve now</Button>
+            <Button as='a' onClick={onOpen} className="button" type="submit" size={['sm','md','lg']} boxShadow='dark-lg' fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#f4ce14' color='#333' rounded='15px'_hover={{bg:'#ee9972', textColor:'#495e57'}}>Reserve now</Button>
             <Modal closeOnOverlayClick={false}
             isOpen={isOpen} onClose={onClose}
             isCentered
@@ -171,14 +172,14 @@ const BookingForm = () => {
                 <ModalBody >
                 <Box
                   bg='url(oudoor.jpg)center/cover no-repeat'
-                  w={['70%', '80%', '100%']}
+                  w={['70%', '100%', '100%']}
                   boxShadow='2xl'
                   left={0}
                   right={0}
                   top={0}
                   p={12}
                   filter='auto'
-                  blur='0.6px'
+                  blur='0.3px'
                   justifyContent='center'
                   justifyItems='center'
                   alignContent='center'
@@ -186,6 +187,7 @@ const BookingForm = () => {
                   alignSelf='center'
                   justifySelf='center'
                   >
+                <VStack>
                   <Flex gap={12} bg='#495e57' justifyContent='center' opacity={.9} p={8} rounded='15'>
                   <IconButton
                         variant='outline'
@@ -196,7 +198,7 @@ const BookingForm = () => {
                         onClick={onClose}
                         />
                   <VStack alignItems='flex-start' gap={2} color='white' >
-                  <Heading as='h2' fontFamily={'Markazi Text'} fontSize={['30','35', '40']} fontWeight='bold'>Please check your reservation information</Heading>
+                  <Heading as='h2' fontFamily={'Markazi Text'} fontSize={['30','35', '40']} fontWeight='bold'>Please check your reservation details</Heading>
                   <Divider/>
                   <HStack fontFamily={'Karla'} fontWeight='bold' fontSize={['12','16', '18']} >
                   <Text>Date:</Text>
@@ -238,14 +240,15 @@ const BookingForm = () => {
                     </Tooltip>
                   <Divider/>
                   <Text as='i' fontFamily={'Karla'} fontWeight='bold' fontSize={['12','18', '16']} color='blue.400' justifySelf='flex-start' alignContent='flex-start'>Additional information?</Text>
-                  <Textarea placeholder='(e.g. allergies, requests etc.)'></Textarea>
+                  <Textarea variant='filled' placeholder='(e.g. allergies, requests etc.)'></Textarea>
                   <Spacer/>
                   <HStack gap={4}>
-                  <Button as='a' href='/confirmation' className="button" type="submit" size={['sm','sm','md']} boxShadow='dark-lg' fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#f4ce14' color='#333' rounded='15px'_hover={{bg:'#333', textColor:'#edefee'}} w='full'>Continue</Button>
-                  <Button as='a' href='/booking' className="button" type="cancel" size={['sm','sm','md']} boxShadow='dark-lg' fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#edefee' color='#333' rounded='15px' variant='outline' w='full'>Cancel</Button>
+                  <Button as='a' href='/confirmation' className="button" type="submit" size={['sm','md','lg']} boxShadow='dark-lg' fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#f4ce14' color='#333' rounded='15px'_hover={{bg:'#ee9972', textColor:'#495e57'}} w='full'>Continue</Button>
+                  <Button as='a' href='/booking' className="button" type="cancel" size={['sm','md','lg']} fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#495e57' color='#edefee' _hover={{bg:'#edefee', color:'#495e57'}}rounded='15px' w='full'>Cancel</Button>
                   </HStack>
                   </VStack>
                   </Flex>
+                  </VStack>
                 </Box>
                 </ModalBody>
                 </ModalContent>

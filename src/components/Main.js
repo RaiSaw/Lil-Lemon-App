@@ -45,7 +45,7 @@ const Main = () => {
           <Flex spacing={['8','12','20']}alignContent='flex-start' alignItems="flex-start" justifyContent="space-evenly" gap={['8','12','200']}>
             <Heading as='h3' fontFamily={'Karla'} fontWeight='extrabold' fontSize={['12','18','20']} alignSelf="flex-start">This week's specials!</Heading>
           <Spacer/>
-            <Button as='a' href='/orderOnline' boxShadow='dark-lg' fontFamily={'Markazi Text'} justifySelf="space-between" alignSelf="flex-end" fontWeight='bold' fontSize={18} size={['sm','md','lg']} bg='#f4ce14' rounded='15px'_hover={{bg:'#333', textColor:'#edefee'}}>Online Menu</Button>
+            <Button as='a' href='/orderOnline' boxShadow='dark-lg' fontFamily={'Markazi Text'} justifySelf="space-between" alignSelf="flex-end" fontWeight='bold' fontSize={18} size={['sm','md','lg']} bg='#f4ce14' rounded='15px'_hover={{bg:'#ee9972', textColor:'#495e57'}}>Online Menu</Button>
           </Flex>
           <Spacer/>
           <Box
@@ -53,7 +53,6 @@ const Main = () => {
             display="grid"
             gridTemplateColumns="repeat(3,minmax(0,1fr))"
             gridGap={8}
-           
            >
             {specials.map((special) => (
             <Cardy

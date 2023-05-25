@@ -13,7 +13,7 @@ const Header = () => {
           left={0}
           right={0}
           px={['8','10','12']}
-          marginTop={460}
+          marginTop={-4}
           py={20}
           >
           <header className="promo">
@@ -23,9 +23,11 @@ const Header = () => {
               <Heading as='h2'fontFamily={'Markazi Text'} fontSize={['30','35', '40']} fontWeight='regular' color='#edefee' >Chicago</Heading>
           <Spacer/>
                 <Text fontSize={['12','16', '18']} fontFamily={'Karla'} fontWeight='medium' color='#edefee' lineHeight='1.5'>We are a family owned<br/> Mediterranean restaurant,<br/>focused on traditional recipes served<br/>with a modern twist.</Text>
-                <Button as='a' href='/booking' boxShadow='dark-lg' size={['sm','md','lg']} fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#f4ce14' rounded='15px'_hover={{bg:'#333', textColor:'#edefee'}} >Reserve a Table</Button>
+                <Button as='a' href='/booking' boxShadow='dark-lg' size={['sm','md','lg']} fontFamily={'Markazi Text'} fontWeight='bold' fontSize={18} bg='#f4ce14' rounded='15px'_hover={{bg:'#ee9972', textColor:'#495e57'}} >Reserve a Table</Button>
             </VStack>
-              <Image boxShadow='dark-lg' mt={4} justifyContent="center" alignSelf="center" justifySelf='center' src="./restauranfood.jpg" alt="restaurant food" boxSize={['230px','250px','290px']} borderRadius='20px'/>
+            <Box className='imgCont' mt={4} alignSelf="center" justifyContent="center" boxShadow='dark-lg' borderRadius='20px' boxSize={['230px','250px','290px']}>
+              <Image className='image' src="./restauranfood.jpg" alt="restaurant food" />
+            </Box>
           </Flex>
           </header>
       </Box>

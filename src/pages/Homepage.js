@@ -8,13 +8,13 @@ import { VStack } from '@chakra-ui/react';
 
 const Homepage = () => {
   return (
-      <VStack>
+    <VStack>
       <Header/>
       <Main/>
       <Testim/>
       <About/>
       <Footer/>
-      </VStack>
+    </VStack>
   )
 }
 
